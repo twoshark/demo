@@ -16,3 +16,7 @@ docker build . --tag twoshark/docker-cs-demo --no-cache --progress plain
 ```
 docker-compose up
 ```
+
+# Accessing the site
+- [Running locally or with docker](http://localhost:8080)
+- [Running with docker-compose](http://localhost:8000)

@@ -9,7 +9,6 @@ RUN dotnet restore --disable-parallel -v diag
 #Copy source for build/publish
 COPY . . 
 RUN dotnet publish . -c Release -o /out --no-restore -p:PublishSingleFile=true -r linux-x64
-RUN ls /out
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 as final
 WORKDIR /app

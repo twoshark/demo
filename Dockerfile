@@ -10,9 +10,12 @@ RUN dotnet restore --disable-parallel -v diag
 COPY . . 
 RUN dotnet publish . -c Release -o /out --no-restore -p:PublishSingleFile=true -r linux-x64
 
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 as final
+FROM debian:latest as final
 WORKDIR /app
 EXPOSE 8080
+
+RUN apt update -y
+RUN apt install libssl-dev -y
 
 COPY --from=builder /out .
 RUN chmod +x demo
